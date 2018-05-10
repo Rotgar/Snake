@@ -1,4 +1,4 @@
-# Snake game in javaFX
+# Snake game in javaFX using MVC pattern
 
 
 
