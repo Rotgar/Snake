@@ -108,7 +108,7 @@ public class Controller{
 						}
 						break;
 					case SPACE: // pause or resume game
-						if(state != GameState.Finished) {
+						if(state == GameState.Running || state == GameState.Paused) {
 							if(pause == false) {
 								pause = true;
 								resume = false;
@@ -208,8 +208,10 @@ public class Controller{
 				@Override
 				public void handle(long now) {
 					
-					updateFps();
-					System.out.println("FPS: " + fpsCurrent);
+					/*show fps
+					 updateFps();
+					 System.out.println("FPS: " + fpsCurrent);
+					*/
 					
 					// when moving up
 					if(up && !down) {
@@ -271,7 +273,7 @@ public class Controller{
 			}.start(); // starting the timer
 		
 	}
-/* shows fps*/
+/* shows fps
 	int frameCount = 0;
 	int fpsCurrent = 0;
 	long prevTime = -1;
@@ -289,7 +291,7 @@ public class Controller{
 	    frameCount = 0;
 	   }
 	}
-
+*/
 	/**
 	 * The update method
 	 */
@@ -303,11 +305,13 @@ public class Controller{
 			state = GameState.Finished; // 
 		}
 		setSound(); // updating the sound
+		
+		// setting snake speed due to gathered points
 		if(speedConstraint > 2 && board.getScore() >= speedPointsConstraint)
-			speedConstraint = 2;
+			speedConstraint = 2; 		   //snake will move faster
 		if((speedConstraint == 2) && (board.getScore() - speedPointsConstraint) >= 10) {
-			speedPointsConstraint += 15;
-			speedConstraint = 3;
+			speedPointsConstraint += 30;  // next interval 30 points further
+			speedConstraint = 3; 	   	  // back to original speed
 		}
 	}
 	
