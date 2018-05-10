@@ -1,4 +1,0 @@
-# Snake game in javaFX
-
-
-
