@@ -208,8 +208,8 @@ public class Controller{
 				@Override
 				public void handle(long now) {
 					
-					//updateFps();
-					//System.out.println("FPS: " + fpsCurrent);
+					updateFps();
+					System.out.println("FPS: " + fpsCurrent);
 					
 					// when moving up
 					if(up && !down) {
@@ -271,7 +271,7 @@ public class Controller{
 			}.start(); // starting the timer
 		
 	}
-/* shows fps
+/* shows fps*/
 	int frameCount = 0;
 	int fpsCurrent = 0;
 	long prevTime = -1;
@@ -289,7 +289,7 @@ public class Controller{
 	    frameCount = 0;
 	   }
 	}
-*/
+
 	/**
 	 * The update method
 	 */
