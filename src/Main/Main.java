@@ -17,6 +17,8 @@ public class Main extends Application{
 			Controller setUpGame = new Controller();
 			// Getting the game stage from controller, which got it from MainView class
 			primaryStage = setUpGame.getStage();
+			// Stage can change size
+			primaryStage.setResizable(false);
 			// Show the stage and actual scenes
 			primaryStage.show();
 	}
